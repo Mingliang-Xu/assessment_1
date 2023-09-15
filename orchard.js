@@ -50,8 +50,22 @@ const pinkPrice = .55
 */
 
 // CODE HERE
+let totalAcresFuji = 0;
+let totalAcresGala = 0;
+let totalAcresPink = 0;
 
+for(let i = 0; i < fujiAcres.length; i++){
+    totalAcresFuji += fujiAcres[i]
+}console.log(totalAcresFuji)
+for(let i = 0; i < galaAcres.length; i++){
+    totalAcresGala += galaAcres[i]
+}console.log(totalAcresGala)
+for(let i = 0; i < pinkAcres.length; i++){
+    totalAcresPink += pinkAcres[i]
+}console.log(totalAcresPink)
 
+let totalAcres = totalAcresFuji+totalAcresGala+totalAcresPink
+console.log(totalAcres);
 
 
 
@@ -70,6 +84,8 @@ const pinkPrice = .55
 // CODE HERE
 
 
+let averageDailyAcres = totalAcres /(fujiAcres.length+galaAcres.length+pinkAcres.length)
+console.log(averageDailyAcres);
 
 
 
@@ -107,7 +123,11 @@ let days = 0
 
 // CODE HERE
 
-
+while(acresLeft > 0){
+    days += 1;
+    acresLeft = acresLeft - averageDailyAcres;
+}
+console.log(days);
 
 // PROBLEM 4
 
@@ -135,9 +155,23 @@ let days = 0
 
 // CODE HERE
 
-// let fujiTons =
-// let galaTons =
-// let pinkTons =
+let fujiTons = [];
+let galaTons = [];
+let pinkTons = [];
+let tonsPerAcre = 6.5;
+
+for(let i = 0; i < fujiAcres.length; i++){
+    fujiTons.push(fujiAcres[i] * tonsPerAcre)
+}
+for(let i = 0; i < galaAcres.length;i+=1){
+    galaTons.push(galaAcres[i] * tonsPerAcre)
+}
+for(let i = 0; i < pinkAcres.length; i = i + 1){
+    pinkTons.push(pinkAcres[i] * tonsPerAcre)
+}
+console.log(fujiTons);
+console.log(galaTons);
+console.log(pinkTons);
 
 
 
@@ -161,14 +195,31 @@ let days = 0
 */
 
 // CODE HERE 
+let toalFujiTons = 0;
+let toalGalaTons = 0;
+let toalPinkTons = 0;
+for(i = 0; i < fujiTons.length; i++){
+    toalFujiTons += fujiTons[i]
+}
+for(i = 0; i < galaTons.length; i++){
+    toalGalaTons += galaTons[i]
+}
+for(i = 0; i < pinkTons.length; i++){
+    toalPinkTons += pinkTons[i]
+}
+console.log(toalFujiTons)
+console.log(toalGalaTons)
+console.log(toalPinkTons)
 
-// let fujiPounds =
-// let galaPounds =
-// let pinkPounds =
 
+let tonToPounds = 2000;
+let fujiPounds = toalFujiTons * tonToPounds;
+let galaPounds = toalGalaTons * tonToPounds;
+let pinkPounds = toalPinkTons * tonToPounds;
 
-
-
+console.log(fujiPounds);
+console.log(galaPounds);
+console.log(pinkPounds);
 
 
 // PROBLEM 6
@@ -189,9 +240,12 @@ let days = 0
 
 // CODE HERE
 
-// let fujiProfit =
-// let galaProfit =
-// let pinkProfit =
+let fujiProfit = fujiPounds * fujiPrice;
+let galaProfit = galaPounds * galaPrice;
+let pinkProfit = pinkPounds * pinkPrice;
+console.log(`i will make ${fujiProfit} dollars from seeling fuji apples`)
+console.log(`i will make ${galaProfit} dollars from selling gala apples`)
+console.log(`i will  make ${pinkProfit} dollars from selling pink apple`)
 
 
 
@@ -209,3 +263,6 @@ let days = 0
 */
 
 // CODE HERE
+
+let totalProfit = fujiProfit + galaProfit + pinkProfit;
+console.log(`The total profit is: ${totalProfit}`);
